@@ -24,15 +24,19 @@
     {{ model.usage|indent(4) }}
 {% endif -%}
 
+**Attributes:**
+
 {# display class field #}
 {% for field in model.fields -%}
 {%- with type=field.type -%}
 .. lua:attribute:: {{ field.name }}: {% include "type.rst" %}
-
-    {{ field.desc }}
+    
+    {{field.desc }}
 
 {% endwith -%}
 {%- endfor %}
+
+**Methods:**
 
 {# display public methods first #}
 {%- for method in model.methods -%}
